@@ -25,13 +25,12 @@ def calc_periods_annuity(principal, payment, interest):
         string = 'You need {} months to repay this credit!'.format(n)
     elif n == 12:
         string = 'You need 1 year to repay this credit!'
-    elif n > 12 and n % 12 == 0:
+    elif n // 12 == 1 and n % 12 != 0:
+        string = 'You need 1 year and {} months to repay this credit!'.format(n % 12)
+    elif n // 12 > 1 and n % 12 == 0:
         string = 'You need {} years to repay this credit!'.format(n // 12)
     else:
-        if n % 12 == 1:
-            string = 'You need {} years and 1 month to repay this credit!'.format(n // 12)
-        else:
-            string = 'You need {} years and {} months to repay this credit'.format(n // 12, n % 12)
+        string = 'You need {} years and {} months to repay this credit!'.format(n // 12, n % 12)
 
     print(string)
     print('Overpayment = {}'.format(int(total_payment - p)))
