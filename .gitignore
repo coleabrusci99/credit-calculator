@@ -1,0 +1,7 @@
+.idea
+*.yaml
+*.txt
+*.html
+*task.py
+test_helper.py
+tests.py
